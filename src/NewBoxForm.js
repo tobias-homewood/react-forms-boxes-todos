@@ -1,38 +1,60 @@
 import React, { useState } from 'react'
 
 export default function NewBoxForm({fields, submitNewBox}) {
-    const [formData, setFormData] = useState(
-        Object.keys(fields).reduce(
-        (acc, key) => {
-            acc[key] = '';
-            return acc;
-        },
-        {})
-    );
+    const [color, setColor] = useState('');
+    const [width, setWidth] = useState('');
+    const [height, setHeight] = useState('');
+    const [text, setText] = useState('');
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        submitNewBox(formData);
-    }
-
-    const handleChange = e => {
-        const {name, value} = e.target;
-        setFormData(data => ({
-            ...data,
-            [name]: value
-        }));
+        submitNewBox({color, width, height, text});
     }
 
   return (
-    <div>
+    <div className='container col-md-3'>
         <form onSubmit={handleSubmit}>
-            {Object.entries(fields).map(([name, type]) => (
-            <div key={name}>
-                <label htmlFor={name}>{name}</label>
-                <input type={type} name={name} id={name} value={formData[name]} onChange={handleChange} />
+            <div className="form-group">
+                <label htmlFor="color">Color</label>
+                <input
+                    type="text"
+                    className="form-control"
+                    id="color"
+                    value={color}
+                    onChange={({target: input}) => setColor(input.value)}
+                />
             </div>
-            ))}
-            <button type="submit">Submit</button>
+            <div className="form-group">
+                <label htmlFor="width">Width</label>
+                <input
+                    type="text"
+                    className="form-control"
+                    id="width"
+                    value={width}
+                    onChange={({target: input}) => setWidth(input.value)}
+                />
+            </div>
+            <div className="form-group">
+                <label htmlFor="height">Height</label>
+                <input
+                    type="text"
+                    className="form-control"
+                    id="height"
+                    value={height}
+                    onChange={({target: input}) => setHeight(input.value)}
+                />
+            </div>
+            <div className="form-group">
+                <label htmlFor="text">Text</label>
+                <input
+                    type="text"
+                    className="form-control"
+                    id="text"
+                    value={text}
+                    onChange={({target: input}) => setText(input.value)}
+                />
+            </div>
+            <button type="submit" className="btn btn-primary mt-3">Create Box</button>
         </form>
     </div>
   )
