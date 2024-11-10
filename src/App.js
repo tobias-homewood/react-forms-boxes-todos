@@ -4,8 +4,8 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <BoxList fields={{text: 'text', width: 'text', height: 'text', backgroundColor: 'text'}} />
+    <div className="container">
+      <BoxList />
     </div>
   );
 }
