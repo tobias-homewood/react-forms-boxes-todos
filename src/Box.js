@@ -1,16 +1,10 @@
 import React from 'react'
 
-export default function Box({properties}) {
-    // get the box's properties for styling
-    const style = {
-        backgroundColor: properties.backgroundColor || 'white',
-        width: properties.width || '100px',
-        height: properties.height || '100px'
-    }
+export default function Box({color, width, height, text}) {
   return (
-    <div>
-        <div style={style}>
-            {properties.text}
+    <div className="card col-1 justify-content-center" style={{ width: `${width}px`, height: `${height}px`, backgroundColor: color }}>
+        <div className="card-body">
+            <p className="card-text text-center">{text}</p>
         </div>
     </div>
   )
