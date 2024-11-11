@@ -3,6 +3,6 @@ import NewBoxForm from './NewBoxForm';
 
 export default function NewTodoForm({submitNewTodo}) {
   return (
-    <NewBoxForm fields={{text: 'text'}} submitNewBox={submitNewTodo} />
+    <NewBoxForm fields={{text: 'text'}} onSubmit={submitNewTodo} />
   )
 }
