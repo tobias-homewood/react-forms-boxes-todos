@@ -1,11 +1,11 @@
 import logo from './logo.svg';
-import BoxList from './BoxList';
+import TodoList from './TodoList';
 import './App.css';
 
 function App() {
   return (
     <div className="container">
-      <BoxList />
+      <TodoList />
     </div>
   );
 }
