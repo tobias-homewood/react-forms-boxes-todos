@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 
-export default function NewBoxForm({fields, submitNewBox}) {
+export default function NewBoxForm({fields, values, onSubmit}) {
     const [formData, setFormData] = useState(
         Object.keys(fields).reduce(
         (acc, key) => {
-            acc[key] = '';
+            acc[key] = !values ? '' : values[key] || '';
             return acc;
         },
         {})
@@ -12,7 +12,7 @@ export default function NewBoxForm({fields, submitNewBox}) {
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        submitNewBox(formData);
+        onSubmit(formData);
     }
 
     const handleChange = e => {
