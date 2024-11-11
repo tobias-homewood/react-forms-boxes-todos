@@ -15,6 +15,7 @@ export default function TodoList() {
     return (
         <div className="container">
             {/* form to add new todos */}
+            <h1 className="text-center">Create a new Todo</h1>
             <NewTodoForm submitNewTodo={addTodo} />
 
             {/* the list of todos rendered as a Todo Component */}
