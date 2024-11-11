@@ -15,7 +15,8 @@ export default function BoxList() {
     return (
         <div className="container">
             {/* form to add new boxes */}
-            <NewBoxForm submitNewBox={addBox} />
+            <h1 className="text-center">Create a new Box</h1>
+            <NewBoxForm fields={{width: 'number', height: 'number', color: 'text', text: 'text'}} submitNewBox={addBox} />
 
             {/* the list of boxes rendered as a Box Component */}
             <div className="mt-4 row">
