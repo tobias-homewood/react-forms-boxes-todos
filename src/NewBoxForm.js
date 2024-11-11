@@ -13,6 +13,13 @@ export default function NewBoxForm({fields, values, onSubmit}) {
     const handleSubmit = (e) => {
         e.preventDefault();
         onSubmit(formData);
+        setFormData(Object.keys(fields).reduce(
+            (acc, key) => {
+                acc[key] = '';
+                return acc;
+            },
+            {})
+        );
     }
 
     const handleChange = e => {
